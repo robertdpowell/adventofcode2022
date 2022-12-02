@@ -1,5 +1,5 @@
 import fileinput
-rounds = list(word.strip() for word in (fileinput.input(files = 'input.py')))
+rounds = list(line.strip() for line in (fileinput.input(files = 'input.py')))
 
 def solve1():
     solutionOneScore = 0
