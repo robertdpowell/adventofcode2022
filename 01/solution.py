@@ -8,6 +8,5 @@ with open("input.py") as f:
 calories.sort(reverse=True)
 maxThree = sum(calories[:3])
 
-
 print (f'solution 1 answer = {(max(calories))}')
 print (f'solution 2 answer = {(maxThree)}')
