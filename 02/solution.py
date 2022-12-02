@@ -32,7 +32,6 @@ def solve2():
             solutionTwoScore += 2
         else:
             solutionTwoScore += 1
-
     return solutionTwoScore
 
 print (solve1())
