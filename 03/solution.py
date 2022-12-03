@@ -5,7 +5,7 @@ with open('input.py') as f:
     def solve1():
         matches = []
         for i in bps:
-            # split in half and remove duplicates
+            # split in half and remove the duplicates
             h1 = set(i[:len(i) // 2])
             h2 = set(i[len(i) // 2:])
 
