@@ -4,9 +4,8 @@ with open('input.py') as f:
 
     def convert(matches):
         # The ord() function returns the number representing the unicode code of a specified character.
-        lowerPrio = list(map(int, [ord(x) - 96 for x in matches if x.islower()]))
-        upperPrio = list(map(int, [ord(x) - 38 for x in matches if x.isupper()]))
-        return (sum(lowerPrio + upperPrio))
+        prio = list(map(int, [(ord(x)-96) if x.islower() else (ord(x)-38) for x in matches]))
+        return (sum(prio))
 
     def solve1():
         matches = []
