@@ -4,6 +4,7 @@ with open('input.py') as f:
 
     def convert(matches):
         # The ord() function returns the number representing the unicode code of a specified character.
+        # Subtract 96 and 38 from lower and upper case unicode values respectively to align with priority pattern outlined in puzzle
         prio = list(map(int, [(ord(x)-96) if x.islower() else (ord(x)-38) for x in matches]))
         return (sum(prio))
 
