@@ -6,6 +6,7 @@ on:
 name: Main Workflow
 jobs:
   sonarcloud:
+  - name: SonarCloud Scan
     runs-on: ubuntu-latest
     steps:
     - uses: sonarsource/sonarcloud-github-action@master
@@ -13,9 +14,6 @@ jobs:
         args: >
           sonar.organization=robertdpowell
           sonar.projectKey=adventofcode2022
-        fetch-depth: 0
-    - name: SonarCloud Scan
-      uses: sonarsource/sonarcloud-github-action@master
       
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
