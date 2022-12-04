@@ -11,8 +11,8 @@ jobs:
     - uses: sonarsource/sonarcloud-github-action@master
       with:
         args: >
-          sonar.organization=robertdpowell
-          sonar.projectKey=adventofcode2022
+          -Dsonar.organization=robertdpowell
+          -Dsonar.projectKey=adventofcode2022
       
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
