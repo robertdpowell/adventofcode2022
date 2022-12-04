@@ -12,7 +12,7 @@ jobs:
       with:
         args: >
           -Dsonar.organization=robertdpowell
-          -Dsonar.projectKey=adventofcode2022
+          -Dsonar.projectKey=robertdpowell_adventofcode2022
       
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
