@@ -32,5 +32,5 @@ def solve2():
             matches.append(pair)
     return (len(matches))
 
-print (f'solution1 answer is {solve1()}')
-print (f'solution1 answer is {solve2()}')
+print (f'solution 1 answer is {solve1()}')
+print (f'solution 2 answer is {solve2()}')
