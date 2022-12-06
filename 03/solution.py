@@ -1,6 +1,7 @@
 with open('input.py') as f:
     bps = [x.strip() for x in f.readlines()]
     groupedbps = [bps[i:i+3] for i in range(0, len(bps), 3)]
+    print (groupedbps)
 
     def convert(matches):
         # The ord() function returns the number representing the unicode code of a specified character.

@@ -1,5 +1,6 @@
 import fileinput
 import re
+import pytest
 
 pairs = list(line.strip().split(',') for line in (fileinput.input(files = 'input.py')))
 
@@ -14,7 +15,7 @@ def convertPair(pair):
     p2 = (list(range(p2[0], (p2[1] + 1))))
     return (p1, p2)
 
-def solve1():
+def solve1(pairs):
     counter = 0
     for pair in pairs:
         p1, p2 = map(set, convertPair(pair))
@@ -22,7 +23,7 @@ def solve1():
             counter += 1
     return (counter)
 
-def solve2():
+def solve2(pairs):
     matches = []
     for pair in pairs:
         p1, p2 = convertPair(pair)
@@ -32,5 +33,5 @@ def solve2():
             matches.append(pair)
     return (len(matches))
 
-print (f'solution1 answer is {solve1()}')
-print (f'solution1 answer is {solve2()}')
+print (f'solution1 answer is {solve1(pairs)}')
+print (f'solution1 answer is {solve2(pairs)}')
