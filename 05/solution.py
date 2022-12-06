@@ -28,5 +28,5 @@ for move in moves.split('\n'):
 answer1 = ''.join(c[-1] for c in crates.values())
 answer2 = ''.join(c[-1] for c in crates2.values())
 
-print (f' solution 1 answer is {answer1}')
-print (f' solution 1 answer is {answer2}')
+print (f'solution 1 answer is {answer1}')
+print (f'solution 1 answer is {answer2}')

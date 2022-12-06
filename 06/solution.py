@@ -1,16 +1,14 @@
 with open("input.py") as f:
-    chars = list(f.read())
-    groupedchars = [chars[i:i + 4] for i in range(0, len(chars[:-3]))]
-    counter = 4
-    for g in groupedchars:
-        while (len(g) != len(set(g))):
-            counter += 1
-            break
-    print (counter)
+    chars = list(f.read().strip())
 
-# Input examples-
-# mjqjpqmgbljsphdztnvjfqwrcgsmlb = 7 my solution works
-# bvwbjplbgvbhsrlpgdmjqwftvncz = 5 doesn't work
-# nppdvjthqldpwncqszvftbrmjlhg = 6 works
-# nznrnfrfntjfmvfwmzdfjlvtqnbhcprsg = 10 doesn't work
-# zcfzfwzzqfrljwzlrfnpqdbhtmscgvjw = 11 works
+    def compute(num):
+        head = num
+        for c in chars:
+            while (len(chars[head-num:head])) != (len(set(chars[head-num:head]))):
+                head += 1
+                break
+        return (head)
+
+print (f'solution 1 answer is {compute(4)}')
+print (f'solution 2 answer is {compute(14)}')
+
