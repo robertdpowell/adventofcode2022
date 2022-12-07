@@ -5,5 +5,5 @@ with open ('input.py') as f:
     print(ns)
 
     for i in range(0, len(ns)):
-        if (ns[i][:4] == "$ cd") and (ns[i+1][:4] == "$ ls"): #if the line starts with
+        if (ns[i][:4] == "$ cd") and (ns[i+1][:4] == "$ ls"):
             print(ns[i],ns[i+2])
