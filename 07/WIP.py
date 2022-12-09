@@ -1,41 +1,66 @@
-from collections import defaultdict
+import re
 
 with open("input.py") as f:
     ls = [x.strip() for x in f.readlines()]
+    print (len(ls))
 
-    for line in ls:
-        parts = line.strip().split(' ')
-        if parts[0].isdigit():
-            print(parts[0])
+    start_pattern = r"^\$ ls$"
+    end_pattern = r"^\$ $"
+
+    start_regex = re.compile(start_pattern)
+    end_regex = re.compile(end_pattern)
+
+    dirs = []
+    dir = []
+    in_dir = False
+
+    i = 0
+    while i < len(ls):
+        start_match = start_regex.match(ls[i])
+        end_match = end_regex.match(ls[i])
+
+        if start_match:
+            in_dir = True
+            print(ls[i])
+            dir.append(ls[i])
+            print (dir)
+            i += 1
+
+        if end_match:
+            in_dir = False
+            print(ls[i])
+            i += 1
+            dirs.append(dir)
+            dir = []
 
 
 
-    # dirs = defaultdict()
-    # path = []
-    # for line in ls:
-    #     match line:
-    #         case["$", "cd", name]:
-    #             path.append(name)
+print (dirs)
+
+
+
+
+
+    # sizes = defaultdict(int)
+    # stack = []
+    # for l in ls:
+    #     match l.split():
+    #         # case [_, _, "/"]:
+    #         #     stack = []
+    #         #     print (stack)
+    #         # case [_, _, ".."]:
+    #         #     stack.pop()
+    #         #     print(stack)
+    #         case [_, _, x]:
+    #             stack.append(x)
+    #             print(stack)
+    #         case [a, _] if a.isdigit():
+    #             for i in range(len(stack) + 1):
+    #                 print(i)
+    #                 path = "/" + "/".join(stack[:i])
+    #                 sizes[path] += int(a)
     #
-    #     print(path)
-    #     #
-        #
-        #
-        # if l.startswith('$ cd'):
-        #     x = l[5:] #get the key
-        #     if x.islower():
-        #         print(x)
-        # #
-        # if l[0].isdigit():
-        #     print (l)
-        #
-
-    # # for i in range(0, len(ns)):
-    # #     if (ns[i][:4] == "$ cd") and (ns[i+1][:4] == "$ ls"):
-    # #         print(ns[i],ns[i+2])
+    # print (sizes)
     #
-    # for i in range(0, len(ns)):
-    #     if (ns[i][:1]).isnumeric():
-    #         print (ns[i-2])
-    #         print (ns[i - 2])
-
+    #
+    #

@@ -1,29 +1,30 @@
+from collections import defaultdict
 import networkx as nx
 
 with open("input.py") as f:
-    grid = list(list(map(int,(x.strip()))) for x in f.read().split('\n'))
-    print (grid)
+    ls = f.read().strip().split("\n")
 
-    count = 0
-    for row in grid:
-        print(row)
-        for i in row:
-            while (row[i] < (len(row)-1)) and (row[i] > row[i+1]):
-                print (i)
-                count +=1
-                break
-    print (count)
+G = nx.grid_2d_graph(len(ls), len(ls[0]))
+heights = {(i, j): int(ls[i][j]) for i, j in G.nodes}
+edges = nx.bfs_edges(G, heights)
+edge_weights = nx.get_edge_attributes(G, edges)
 
+print (edge_weights)
 
-
-
-
-
-# create a list of lists of all horizontal and vertical rows
-# for i in range i to length of groid forward and backward
-#     if i > i in range
-
+#     trees = []
+#     count = 0
+#     for row in grid:
+#         for i in range (1, len(row)-1): #for every item in the row
+#             currentnum = row[i]
+#             for j in range (i+1, len(row)-1): #for every item after the previous item, through to the end of row
+#                 nextnum = row[j]
+#                 if currentnum > nextnum:
+#                     trees.append(i)
 #
+# print (trees)
+
+
+
 # G = nx.grid_2d_graph(len(ls), len(ls[0]))
 # for i in nx.connected_components(G):
 #     print (i)
