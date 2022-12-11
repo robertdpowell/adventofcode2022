@@ -9,7 +9,6 @@ with open("input.py") as f:
 
     signals = defaultdict(int)
     litpixels = []
-    unlitpixels = []
     X = 1
     cycle = 0
     CRT = -1
