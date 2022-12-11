@@ -7,6 +7,14 @@ with open("input.py") as f:
         if CRT==X-1 or CRT==X or CRT==X+1:
             litpixels.append(CRT)
 
+    # Function to control the CRT position
+    def setCRT(CRT):
+        if CRT < 39:
+            CRT += 1
+        else:
+            CRT = 0
+        return(CRT)
+
     signals = defaultdict(int)
     litpixels = []
     X = 1
@@ -17,31 +25,27 @@ with open("input.py") as f:
         match l.split():
             case ["noop"]:
                 cycle += 1
-                if CRT < 39:
-                    CRT +=1
-                else:
-                    CRT = 0
+                CRT = setCRT(CRT)
                 markPixel(CRT, X)
                 signals[cycle] = (cycle * X)
 
             case [_, y]:
                 cycle += 1
-                if CRT < 39:
-                    CRT += 1
-                else:
-                    CRT = 0
+                CRT = setCRT(CRT)
                 markPixel(CRT, X)
                 signals[cycle] = (cycle * X)
                 cycle += 1
-                if CRT < 39:
-                    CRT += 1
-                else:
-                    CRT = 0
+                CRT = setCRT(CRT)
                 markPixel(CRT, X)
                 signals[cycle] = (cycle * X)
                 X += int(y)
 
 items = {k: v for k, v in signals.items() if k in [20, 60, 100, 140, 180, 220]}
+
+for i in range(len(litpixels)):
+  if i > 0 and litpixels[i] < litpixels[i-1]:
+    print("\n")
+  print(litpixels[i])
 
 print (f'Solution 1 answer is {sum(items.values())}')
 print (f'Solution 1 answer is {litpixels}')
