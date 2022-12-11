@@ -43,6 +43,7 @@ with open("input.py") as f:
                 X += int(y)
 
 items = {k: v for k, v in signals.items() if k in [20, 60, 100, 140, 180, 220]}
+
 print (f'Solution 1 answer is {sum(items.values())}')
 print (f'Solution 1 answer is {litpixels}')
 
