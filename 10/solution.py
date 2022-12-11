@@ -1,4 +1,5 @@
 from collections import defaultdict
+
 with open("input.py") as f:
     ls = [x.strip() for x in f.readlines()]
 
@@ -41,12 +42,6 @@ with open("input.py") as f:
                 X += int(y)
 
 items = {k: v for k, v in signals.items() if k in [20, 60, 100, 140, 180, 220]}
-
-for i in range(len(litpixels)):
-  if i > 0 and litpixels[i] < litpixels[i-1]:
-    print("\n")
-  print(litpixels[i])
-
 print (f'Solution 1 answer is {sum(items.values())}')
 print (f'Solution 1 answer is {litpixels}')
 
