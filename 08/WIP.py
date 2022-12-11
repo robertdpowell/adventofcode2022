@@ -7,9 +7,7 @@ with open("input.py") as f:
 G = nx.grid_2d_graph(len(ls), len(ls[0]))
 heights = {(i, j): int(ls[i][j]) for i, j in G.nodes}
 edges = nx.bfs_edges(G, heights)
-edge_weights = nx.get_edge_attributes(G, edges)
-
-print (edge_weights)
+print (heights)
 
 #     trees = []
 #     count = 0
